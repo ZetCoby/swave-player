@@ -40,15 +40,24 @@ export namespace Components {
     */
     'middle'?: string;
   }
+
+  interface SwavePlayer {
+    'audioUrl': string;
+  }
+  interface SwavePlayerAttributes extends StencilHTMLAttributes {
+    'audioUrl'?: string;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
     'MyComponent': Components.MyComponent;
+    'SwavePlayer': Components.SwavePlayer;
   }
 
   interface StencilIntrinsicElements {
     'my-component': Components.MyComponentAttributes;
+    'swave-player': Components.SwavePlayerAttributes;
   }
 
 
@@ -58,12 +67,20 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLSwavePlayerElement extends Components.SwavePlayer, HTMLStencilElement {}
+  var HTMLSwavePlayerElement: {
+    prototype: HTMLSwavePlayerElement;
+    new (): HTMLSwavePlayerElement;
+  };
+
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement
+    'swave-player': HTMLSwavePlayerElement
   }
 
   interface ElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'swave-player': HTMLSwavePlayerElement;
   }
 
 
