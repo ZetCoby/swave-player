@@ -17,7 +17,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "swave": "^1.0.4"
+    "swave": "^1.0.6"
   },
   "devDependencies": {
     "@stencil/core": "~0.16.2",
