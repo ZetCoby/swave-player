@@ -43,9 +43,11 @@ export namespace Components {
 
   interface SwavePlayer {
     'audioUrl': string;
+    'title': string;
   }
   interface SwavePlayerAttributes extends StencilHTMLAttributes {
     'audioUrl'?: string;
+    'title'?: string;
   }
 }
 

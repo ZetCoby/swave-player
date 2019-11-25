@@ -1,4 +1,4 @@
-import {Component, Prop} from "@stencil/core";
+import { Component, Prop, State, Watch} from "@stencil/core";
 import Swave from "swave";
 
 @Component({
@@ -8,6 +8,8 @@ import Swave from "swave";
 })
 export class SwavePlayer {
   @Prop() audioUrl: string;
+  @Prop() title: string;
+  @State() plays = false;
   private swave: any;
 
   componentWillLoad() {
@@ -27,10 +29,44 @@ export class SwavePlayer {
     this.swave.pause();
   }
 
+  togglePlay() {
+    this.plays = !this.plays;
+    console.log(this.plays)
+  }
+
 
   render() {
+    console.log("render")
     return <div class='swave-player'>
-      <button onClick={() => this.play()}>Play</button>
+      <div class="thumbnail" style={{backgroundImage: `url('https://placeimg.com/200/200/any')`}}>
+        <div class="controls">
+          <div class="fast-backward">
+            <span></span><span></span>
+          </div>
+          <div class="play-stop" onClick={() => this.togglePlay()}>
+            <span class={this.plays ? 'pause' : 'play'}></span>
+          </div>
+          <div class="fast-forward">
+            <span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="title">
+          {this.title}
+        </div>
+
+        <div class="progress-wrapper">
+          <div class="progress-bar">
+            <div class="inner-progress">
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
     </div>;
   }
 }
