@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 $btnColor: #fff;
 $progressColor: #262626;
+$accentColor: #E89005;
 
 
 
@@ -28,7 +29,7 @@ $progressColor: #262626;
       transition: background-color .3s, opacity .3s;
 
       &:hover {
-        background: rgba(0,0,0,0.2);
+        background: rgba(232, 144, 5, 0.3);
         opacity: 1;
       }
 
@@ -89,6 +90,15 @@ $progressColor: #262626;
     flex: 1;
     padding: 10px;
 
+    .canvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.1;
+    }
+
     .title {
       margin-bottom: 10px;
     }
@@ -106,14 +116,15 @@ $progressColor: #262626;
         width: 100%;
         height: 5px;
         cursor: pointer;
-        transition: height .1s;
+        transition: height .3s;
 
         &:hover{
           height: 8px;
         }
 
         .inner-progress {
-          background: $progressColor;
+          transition: width .3s;
+          background: $accentColor;
           height: 100%;
           width: 35%;
         }
